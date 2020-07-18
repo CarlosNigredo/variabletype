@@ -34,8 +34,8 @@
     }
 
     window.ontouchmove = function (){
-        var mouseX = window.event.clientX;
-        var mouseY = window.event.clientY;
+        var mouseX = window.event.touches[0].clientX;
+        var mouseY = window.event.touches[0].clientY;
 
         document.getElementById('tooltip').style.left = mouseX-50 + "px";
         document.getElementById('tooltip').style.top = mouseY-100 + "px";
