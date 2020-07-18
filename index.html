@@ -32,5 +32,20 @@
         document.getElementById('data').innerHTML = variableValue;
 
     }
+
+    window.onmouseclick = function (){
+        var mouseX = window.event.clientX;
+        var mouseY = window.event.clientY;
+
+        document.getElementById('tooltip').style.left = mouseX-50 + "px";
+        document.getElementById('tooltip').style.top = mouseY-100 + "px";
+
+        var variableValue = Math.round(map(mouseX, 0, window.innerWidth, 100, 200));
+
+        document.getElementById('letter').style.fontVariationSettings = "\'wght\' " + variableValue;
+
+        document.getElementById('data').innerHTML = variableValue;
+
+    }
 </script>
 </html>
