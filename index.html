@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Variable Type Workshop</title>
+</head>
+<body>
+    <div class="block">
+        <div class="e" id="letter">F</div>
+    </div>
+    <div id="tooltip">
+        <p class="tag">AXIS VALUE:</p>
+        <p class="value" id="data"></p>
+    </div>
+</body>
+<script>
+    const map = (value, in_min, in_max, out_min, out_max) => (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+
+    window.onmousemove = function (){
+        var mouseX = window.event.clientX;
+        var mouseY = window.event.clientY;
+
+        document.getElementById('tooltip').style.left = mouseX-50 + "px";
+        document.getElementById('tooltip').style.top = mouseY-100 + "px";
+
+        var variableValue = Math.round(map(mouseX, 0, window.innerWidth, 100, 200));
+
+        document.getElementById('letter').style.fontVariationSettings = "\'wght\' " + variableValue;
+
+        document.getElementById('data').innerHTML = variableValue;
+
+    }
+</script>
+</html>
